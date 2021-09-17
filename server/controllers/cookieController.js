@@ -7,6 +7,9 @@ cookieController.createSession = async (req, res, next) => {
     if (res.locals.registration === false) {
       return next();
     }
+    if (res.locals.notvalidemail === true) {
+      return next();
+    }
     const token = await jwt.sign({id: res.locals.id}, process.env.ID_SALT);
     res.cookie('ssid', token, {maxAge: 300000});
     return next();

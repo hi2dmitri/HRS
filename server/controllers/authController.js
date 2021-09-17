@@ -2,7 +2,10 @@ const db = require('../db');
 const bcrypt = require('bcryptjs');
 const authController = {};
 
-
+function validateEmail(str) {
+  const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(String(str).toLowerCase());
+}
 
 
 authController.createUser = async (req, res, next) => {
@@ -11,6 +14,10 @@ authController.createUser = async (req, res, next) => {
     const {token, password, email} = req.body;
     if(token === null || password === null || email === null) {
       res.locals.registration = false;
+      return next();
+    }
+    if (!validateEmail(email)) {
+      res.locals.notvalidemail = true;
       return next();
     }
 

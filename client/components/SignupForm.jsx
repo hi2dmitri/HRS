@@ -35,6 +35,10 @@ const SignupForm = (props)  => {
       <h4 className='welcome'>Please enter email, password and token</h4>
       <FontAwesomeIcon className="fausers" icon={faUsers} size="2x"/>
       {props.errorLogin === false && <Error registered={props.registered}/>}
+      {props.errorLogin === 'emailfailed' && <div className='errordiv'>
+        <p>Incorrect email format. Please try again 
+        </p>
+      </div>}
       <div className="form-group">
         <input type="email" className="form-control" placeholder="Enter email" onChange={emailEntered}/>
       </div>

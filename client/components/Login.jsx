@@ -61,19 +61,32 @@ const Login = (props)  => {
     .then(resp => {
       if (resp.status === false) {
         setErrorLogin(false);
+        props.setAuth(resp.status);
+
       } 
+      else if(resp.status === 'emailfailed') {
+        setErrorLogin('emailfailed');
+        props.setAuth(false);
+
+      }
       else if (resp.status === true) {
         const rightCookie = findCookie(document.cookie);
         if(rightCookie) {
           localStorage.setItem('token', rightCookie);
           localStorage.setItem('name', `${resp.name.firstName} ${resp.name.lastName}`);
         }
+        props.setAuth(resp.status);
       }
-      props.setAuth(resp.status);
 
     })
     .catch(err => console.log(err));
   }
+
+  useEffect(() => { if (errorLogin === false || errorLogin === 'emailfailed') {
+    setTimeout(() => {
+      setErrorLogin(true);
+    }, 3000); }
+  }, [errorLogin]);
 
   return ( 
   <div className='Login'>

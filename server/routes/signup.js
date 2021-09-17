@@ -12,6 +12,12 @@ router.post('/', authController.createUser, cookieController.createSession, (req
   if (res.locals.registration === false) {
     return res.status(401).json({status: false, name: {firstName:undefined, lastName: undefined}});
   }
+  if (res.locals.notvalidemail === true) {
+    return res.status(401).json({
+      status: 'emailfailed',
+      name: {firstName:undefined, lastName: undefined}
+    });
+  }
   return res.status(200).json({status: true, name:res.locals.name});
 });
 
