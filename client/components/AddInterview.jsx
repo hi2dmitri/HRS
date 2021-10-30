@@ -112,7 +112,6 @@ const AddInterview = (props) => {
         </form>
       </div>
     </div>
-  
   );
 };
 

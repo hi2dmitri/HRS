@@ -16,6 +16,7 @@ where Error component renders.
 
 
 const Login = (props)  => {
+  console.log('I was called from login component');
 
   const info = {
       email: null,
@@ -39,10 +40,10 @@ const Login = (props)  => {
 
   function submitInfo(e) {
     let url = '';
-    if (e.target.className === 'login-button') {
+    if (props.registered) {
       url = '/login';
     }
-    else if (e.target.className === 'signup-button') {
+    else {
       url = '/signup';
     }
     const data = {
@@ -89,7 +90,7 @@ const Login = (props)  => {
   }, [errorLogin]);
 
   return ( 
-  <div className='Login'>
+  <div className='landing-page'>
     <section className="intro">
       <img alt='intro' className='logoImg' src={logo} />
       <div className ='textInImage'>
@@ -99,7 +100,10 @@ const Login = (props)  => {
         <p>AUTOMATED PAPERLESS EMPLOYEE MANAGEMENT SYSTEM</p>
       </div>
     </section>
-    <section className='signin'>
+    <section className='not-supported'>
+      <div>This screen size is currently not supported</div>
+      </section>
+    <section className='auth'>
       {props.registered 
       && <LoginForm 
       setRegistered={props.setRegistered} 

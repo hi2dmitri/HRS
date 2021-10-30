@@ -8,5 +8,5 @@ render(
   <Router>
     <App />
   </Router>,
-  document.getElementById('body'),
+  document.getElementById('app'),
 );

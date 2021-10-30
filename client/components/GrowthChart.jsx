@@ -80,7 +80,7 @@ const GrowthChart = (props) => {
                 width = "78vh"
                 data={data}>
                 <ArgumentAxis />
-                <ValueAxis max={7}/>
+                <ValueAxis max={7} allowDecimals="false"/>
                 <BarSeries
                   valueField="employees"
                   argumentField="month"/>

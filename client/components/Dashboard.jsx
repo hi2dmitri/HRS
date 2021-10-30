@@ -20,9 +20,10 @@ import Settings from './Settings';
 */
 
 const Dashboard = (props)  => {
-  if (props.auth === false) {
-    return <Redirect to='/' />;
-  }
+  console.log('i was called from dashboard component');
+  // if (props.auth === false) {
+  //   return <Redirect to='/' />;
+  // }
 
   const nwN = localStorage.getItem('name');
   const[name, setName] = useState(nwN);

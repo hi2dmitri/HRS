@@ -1,38 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap');
 
 body {
-    padding:0;
-    margin:0;
+    padding: 0px;
+    margin: 0px;
     color: rgb(63, 62, 62);
-    font-family:sans-serif;
+    font-family: sans-serif;
 }
 
-.maindiv { 
+.app-container { 
     width: 100vw;
     height: 100vh;
     background-color: rgba(243, 249, 252, 0.774);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.Login {
+.landing-page {
     position: relative;
-    background-color: white;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display:flex;
+    display: flex;
     width: 75%;
-    height:80%;
-    margin:0;
+    height: 80%;
     justify-content: center;
     border-radius: 5px;
     box-shadow: 0 0 10px #c5e1ff;
 }
 
 .logoImg {
-    width:100%;
+    width: 100%;
     height: 100%;
     border-radius: 5px;
-    object-fit: cover;
+    object-fit: fill;
 }
 
 .textInImage {
@@ -41,7 +39,6 @@ body {
     left: 30px;
     color: rgb(255, 255, 255);
 }
-
 
 .textInImage h3 {
     font-family: 'Allerta Stencil', sans-serif !important;
@@ -60,24 +57,27 @@ body {
 }
 
 .motto p {
-    font-size: 1.7vh;
+    font-size: 1vw;
     font-weight: 500;
     opacity: 90%;
 }
 
-.welcome {
-    align-self: flex-start;
-    margin-left: 7vw;
-    margin-bottom: 10px;
-    margin-right: 60px;
-    padding: 0;
-    color: rgb(63, 62, 62);
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-weight: normal;
+.form-name {
+    font-size: 23px;
+    margin: 10px;
 }
 
-.signin {
+.form-group {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.auth {
+    display: flex;
+    align-items: center;
     width: 45%;
+    min-width: 400px;
     border-radius: 5px;
     background-color: white;
     overflow: scroll;
@@ -89,7 +89,6 @@ body {
     align-items: center;
     overflow: scroll;
     width: 100%;
-    margin-top: 9vh;
     border-radius: 6px;
 }
 
@@ -99,39 +98,48 @@ body {
     border-radius: 5px;
 }
 
-.fausers {
-    margin: 20px;
-    opacity: 0.75;                /* Opacity (Transparency) */
-    color: rgba(0, 0, 0, 0.75)
-}
-
 .form-control {
-    margin: 15px;
+    margin: 1vh;
     border-radius: 10px;
     width: 19vw;
-    height: 40px;
+    min-width: 250px;
+    height: 5vh;
+    min-height: 40px;
     border: 1px solid #a3a3a3;
     box-shadow: 0 0 7px #719ECE;
 }
 
-.login-button, .signup-button {
+.not-supported {
+    width: 0px;
+    height: 0px;
+}
+
+.auth-button {
     background-color: #719ECE;
     color: white;
     margin: 15px;
     border-radius: 10px;
-    width: 19vw;
-    height: 44px;
+    width: 19.4vw;
+    min-width: 254px;
+    height: 5.2vh;
+    min-height: 44px;
     border: 1px solid #719ECE;
 }
 
-input:focus, button:hover {
+.form-control:focus, .auth-button:hover {
     outline: rgb(114, 114, 114);
     box-shadow: 0 0 10px #719ECE;
 }
 
-button:hover {
+.auth-button:hover {
     background-color: white;
     color: #719ECE;
+}
+
+.fausers {
+    margin: 20px;
+    opacity: 0.75;                /* Opacity (Transparency) */
+    color: rgba(0, 0, 0, 0.75)
 }
 
 a {
@@ -139,13 +147,10 @@ a {
     cursor: default;
 }
 
-.forgot-password {
-    margin: 2vh 0 3vh 0;
-}
-
 .errordiv {
-    width: 350px;
-    margin: 15px;
+    width: 19.4vw;
+    min-width: 254px;
+    margin-bottom: 10px;
 }
 
 .errordiv p {
@@ -153,6 +158,40 @@ a {
     margin: 2px;
     color: rgb(233, 85, 85)
 }
+
+@media only screen and (max-width: 1024px) {
+    .intro {
+      width: 0px;
+      height: 0px;
+    }
+    .auth {
+        width: 70%;
+    }
+    .landing-page {
+        background-color: white;
+    }
+  }
+
+
+  @media only screen and (max-height: 608px) {
+    .intro {
+      width: 0px;
+      height: 0px;
+    }
+    .auth {
+        width: 0px;
+        height: 0px;
+    }
+    .landing-page {
+        background-color: white;
+        flex-direction: column;
+        align-items: center;
+    }
+    .not-supported {
+        width: 100%;
+        text-align: center;
+    }
+  }  
 
 .errorPage {
     position: fixed;

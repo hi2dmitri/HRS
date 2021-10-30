@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import {Switch, Route, Redirect} from 'react-router-dom';
 import './stylesheets/stylesheet.css';
-import Login from './components/Login';
+import LandingPage from './components/LandingPage';
 import Dashboard from './components/Dashboard';
 import ErrorPage from './components/NotFound';
 import { CircularProgress } from '@material-ui/core';
@@ -15,6 +15,7 @@ import { CircularProgress } from '@material-ui/core';
 
 
 function App(props){
+  console.log('i was called from app component');
 
   const [auth, setAuth] = useState(false);
   const [registered, setRegistered] = useState(true);
@@ -48,7 +49,7 @@ function App(props){
   };
 
   return (
-    <div className='maindiv'>
+    <div className='app-container'>
       {isLoading && 
       <div className = "loading">
         < CircularProgress />
@@ -57,10 +58,13 @@ function App(props){
       {!isLoading && (
         <Switch>
           <Route exact path="/main" >
-            <Dashboard auth ={auth} setAuth={setAuth}/>
+            { auth ? 
+              <Dashboard auth ={auth} setAuth={setAuth}/> :
+              <Redirect to='/' />
+            }
           </Route>
           <Route exact path = "/">
-            { auth ? <Redirect to="/main" /> : <Login 
+            { auth ? <Redirect to="/main" /> : <LandingPage 
               auth={auth} 
               setAuth={setAuth} 
               registered={registered} 

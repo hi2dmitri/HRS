@@ -31,8 +31,8 @@ const SignupForm = (props)  => {
 
   return (
     <form className = 'signupForm'>
-      <h1 className='welcome'>SIGNUP</h1>
-      <h4 className='welcome'>Please enter email, password and token</h4>
+      <p className='form-name'>SIGNUP</p>
+      <p>Please enter email, password and token</p>
       <FontAwesomeIcon className="fausers" icon={faUsers} size="2x"/>
       {props.errorLogin === false && <Error registered={props.registered}/>}
       {props.errorLogin === 'emailfailed' && <div className='errordiv'>
@@ -48,13 +48,7 @@ const SignupForm = (props)  => {
       <div className="form-group">
         <input type="token" className="form-control" placeholder="Enter token" onChange={tokenEntered}/>
       </div>
-      <div className="remember-me">
-        <div className="custom-control custom-checkbox">
-          <input type="checkbox" className="custom-control-input" id="customCheck1" />
-          <label className="custom-control-label" htmlFor="customCheck1">Remember me</label>
-        </div>
-      </div>
-      <button type="button" className="signup-button" onClick={props.submitInfo}>Signup</button>
+      <button type="button" className="auth-button" onClick={props.submitInfo}>Signup</button>
       <div className="forgot-password text-right">
         <a onClick={backToLogin}> Back to Login</a>
       </div>
