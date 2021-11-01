@@ -46,6 +46,8 @@ const Login = (props)  => {
     else {
       url = '/signup';
     }
+    console.log('url', url);
+
     const data = {
       email: login.email,
       password: login.password, 

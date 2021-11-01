@@ -44,7 +44,7 @@ const PopUpDecl = (props) =>  {
 
   return (
     <div className="modal">
-      <div className="modal_content-decl">
+      <div className="modal_content">
         <span className="close" onClick={handleClick}>
             &times;
         </span>

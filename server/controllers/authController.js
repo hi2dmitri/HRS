@@ -65,6 +65,7 @@ authController.createUser = async (req, res, next) => {
 
 authController.verifyUser = async (req, res, next) => {
   try {
+    console.log('verify,', req.body);
     const {email, password} = req.body;
     const findUserDb = `SELECT password, _id, first_name, last_name
     FROM auth_table WHERE email = $1;`;

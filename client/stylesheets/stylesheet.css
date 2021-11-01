@@ -52,12 +52,12 @@ body {
 .motto {
     position: absolute;
     bottom: 20px;
-    right:50%;
+    right:55%;
     color: rgb(236, 248, 252);
 }
 
 .motto p {
-    font-size: 1vw;
+    font-size: 11px;
     font-weight: 500;
     opacity: 90%;
 }
@@ -76,10 +76,11 @@ body {
 .auth {
     display: flex;
     align-items: center;
+    justify-content: center;
     width: 45%;
     min-width: 400px;
     border-radius: 5px;
-    background-color: white;
+    background-color: #ffffff;
     overflow: scroll;
 }
 
@@ -88,7 +89,7 @@ body {
     flex-direction: column;
     align-items: center;
     overflow: scroll;
-    width: 100%;
+    width: 80%;
     border-radius: 6px;
 }
 
@@ -101,8 +102,8 @@ body {
 .form-control {
     margin: 1vh;
     border-radius: 10px;
-    width: 19vw;
-    min-width: 250px;
+    width: 100%;
+    max-width: 500px;
     height: 5vh;
     min-height: 40px;
     border: 1px solid #a3a3a3;
@@ -119,7 +120,7 @@ body {
     color: white;
     margin: 15px;
     border-radius: 10px;
-    width: 19.4vw;
+    width: 96%;
     min-width: 254px;
     height: 5.2vh;
     min-height: 44px;
@@ -148,50 +149,51 @@ a {
 }
 
 .errordiv {
-    width: 19.4vw;
+    width: 96%;
     min-width: 254px;
     margin-bottom: 10px;
 }
 
 .errordiv p {
     font-size: 14px;
-    margin: 2px;
+    margin: 4px;
     color: rgb(233, 85, 85)
 }
 
-@media only screen and (max-width: 1024px) {
+@media screen and (max-width: 1024px), 
+       screen and (max-height: 668px){
     .intro {
-      width: 0px;
-      height: 0px;
-    }
-    .auth {
-        width: 70%;
-    }
-    .landing-page {
-        background-color: white;
-    }
-  }
-
-
-  @media only screen and (max-height: 608px) {
-    .intro {
-      width: 0px;
-      height: 0px;
-    }
-    .auth {
         width: 0px;
         height: 0px;
+      }
+      .auth {
+          width: 0px;
+          height: 0px;
+      }
+      .landing-page {
+          background-color: white;
+          flex-direction: column;
+          align-items: center;
+      }
+      .not-supported {
+          width: 100%;
+          text-align: center;
+      }
+      .textInImage {
+          top: 10px;
+          left: 10px;
+          color: rgb(34,78,124);
+      }
+      .textInImage h3 {
+          font-size: 50px;
+          text-shadow: 4px 3px #719ECE;  
+      } 
+      .motto p {
+        font-size: 12px;
+        font-weight: 500;
+        opacity: 0%;
     }
-    .landing-page {
-        background-color: white;
-        flex-direction: column;
-        align-items: center;
-    }
-    .not-supported {
-        width: 100%;
-        text-align: center;
-    }
-  }  
+  }
 
 .errorPage {
     position: fixed;
@@ -1370,7 +1372,6 @@ input{
     z-index: 1;
     width: 82.5%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.25);
   }
   
   .modal_content {
@@ -1381,7 +1382,7 @@ input{
     width: 30%;
     padding: 20px;
     border-radius: 5px;
-    border: 2px solid green;
+    box-shadow: 0px 0px 12px #b0c3d7 ;
   }
 
   .modal_content-decl {
@@ -1391,8 +1392,9 @@ input{
     left: 25vw;
     width: 30%;
     padding: 20px;
-    border-radius: 5px;
-    border: 2px solid #C83200;
+    border-radius: 14px;
+    box-shadow: 0px 0px 12px #b0c3d7 ;
+
   }
 
   .innerModal{
@@ -1425,4 +1427,44 @@ input{
     color: #d8601f;
     text-align: center;
     padding: 38vh;
+  }
+
+
+  @media screen and (max-width: 1024px), 
+       screen and (max-height: 668px){
+    .intro {
+        width: 0px;
+        height: 0px;
+      }
+      .auth {
+          width: 0px;
+          height: 0px;
+      }
+      .landing-page {
+          background-color: white;
+          flex-direction: column;
+          align-items: center;
+      }
+      .not-supported {
+          width: 100%;
+          text-align: center;
+      }
+      .textInImage {
+          top: 10px;
+          left: 10px;
+          color: rgb(34,78,124);
+      }
+      .textInImage h3 {
+          font-size: 50px;
+          text-shadow: 4px 3px #719ECE;  
+      } 
+      .motto p {
+        font-size: 12px;
+        font-weight: 500;
+        opacity: 0%;
+    }
+    .dashboard {
+        width: 0px;
+        height: 0px;
+    }
   }

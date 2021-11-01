@@ -4,6 +4,7 @@ import {
   BarSeries,
   ArgumentAxis,
   ValueAxis,
+  
 } from '@devexpress/dx-react-chart-material-ui';
 import { Animation } from '@devexpress/dx-react-chart';
 import { CircularProgress } from '@material-ui/core';
@@ -30,6 +31,7 @@ const dat = [
 
 
 const GrowthChart = (props) => {
+
 
   const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState(dat);
@@ -80,7 +82,7 @@ const GrowthChart = (props) => {
                 width = "78vh"
                 data={data}>
                 <ArgumentAxis />
-                <ValueAxis max={7} allowDecimals="false"/>
+                <ValueAxis showGrid={true} tickFormat={(scale) => (d) => d % 1 === 0 ? d : null} />
                 <BarSeries
                   valueField="employees"
                   argumentField="month"/>

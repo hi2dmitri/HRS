@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React from 'react';
 import GrowthChart from './GrowthChart';
 import InterviewsDash from './InterviewsDash';
 import BottomDash from './BottomDash';
@@ -13,7 +13,7 @@ const Intro = (props) => {
     <div className='mainDash'>
       <div className = 'mainIntro'>
         <section className='companyGrowth'>
-          <GrowthChart / >
+          <GrowthChart />
         </section>
         <section className='interviews'>
           <InterviewsDash />
