@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import PositionsChoice from './PositionsChoice';
-
+import styled from 'styled-components';
 /*
   Stores all data from inputs in state.
   if any input is empty - renders error and sets values of inputs to null;
@@ -8,6 +8,8 @@ import PositionsChoice from './PositionsChoice';
  */
 
 const AddApplicant = (props) => {
+
+
   const newApplicant = {
     first_name: null,
     last_name: null,

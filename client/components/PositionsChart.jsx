@@ -5,9 +5,9 @@ import {
   PieSeries,
   Legend,
 } from '@devexpress/dx-react-chart-material-ui';
-import { Animation } from '@devexpress/dx-react-chart';
+import { Animation, Palette } from '@devexpress/dx-react-chart';
 import { CircularProgress } from '@material-ui/core';
-
+import {schemePaired} from 'd3-scale-chromatic';
 /*
   sends request to backend to get all positions and number of apps.
   if error occurs displays error
@@ -58,6 +58,7 @@ const PositionsChart = (props) => {
           className='chartToUpdate'
           data={chartData}
         > 
+          <Palette scheme={schemePaired} />
           <Legend 
             marginLeft='300'
           />

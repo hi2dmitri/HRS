@@ -15,12 +15,12 @@ import { CircularProgress } from '@material-ui/core';
 
 
 function App(props){
-  console.log('i was called from app component');
 
   const [auth, setAuth] = useState(false);
   const [registered, setRegistered] = useState(true);
   const tokenFromStorage = localStorage.getItem('token');
   const [isLoading, setIsLoading] = useState(true);
+  console.log(tokenFromStorage);
   
   useEffect(() => {
     fetchData();
@@ -36,18 +36,19 @@ function App(props){
           },
           body: JSON.stringify({'token': tokenFromStorage})
         });
-        if (isToken) {
+        const token = await isToken.json();
+        if (token) {
           setAuth(true);
         } else {
           localStorage.removeItem('token');
-
+          setAuth(false);
         }
       }
     } finally {
       setIsLoading(false);
     }
   };
-
+  console.log('auth', auth);
   return (
     <div className='app-container'>
       {isLoading && 
@@ -58,7 +59,7 @@ function App(props){
       {!isLoading && (
         <Switch>
           <Route exact path="/main" >
-            { auth ? 
+            {auth ? 
               <Dashboard auth ={auth} setAuth={setAuth}/> :
               <Redirect to='/' />
             }
