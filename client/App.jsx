@@ -1,10 +1,10 @@
 /* eslint-disable no-trailing-spaces */
 import React, { useState, useEffect } from 'react';
 import {Switch, Route, Redirect} from 'react-router-dom';
-import './stylesheets/stylesheet.css';
-import LandingPage from './components/LandingPage';
-import Dashboard from './components/Dashboard';
-import ErrorPage from './components/NotFound';
+import './stylesheets/global.css';
+import LandingPage from './pages/LandingPage';
+import Dashboard from './pages/Dashboard';
+import ErrorPage from './pages/NotFound';
 import { CircularProgress } from '@material-ui/core';
 
 /* 

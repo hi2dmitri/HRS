@@ -1,8 +1,9 @@
 /* eslint-disable indent */
 import React, {useState, useEffect} from 'react';
+import './landingpage.css';
 import logo from '../images/logo.jpg';
-import LoginForm from './LoginForm';
-import SignupForm from './SignupForm';
+import LoginForm from '../components/LoginForm';
+import SignupForm from '../components/SignupForm';
 
 /* 
 this component is rendering login or signup form depending on props passed from parent component App
@@ -102,10 +103,12 @@ const Login = (props)  => {
         <p>AUTOMATED PAPERLESS EMPLOYEE MANAGEMENT SYSTEM</p>
       </div>
     </section>
-    <section className='not-supported'>
-      <div>This screen size is currently not supported</div>
-      </section>
     <section className='auth'>
+    <div className='appName-mob'>
+        <div>HRS</div>
+      </div>
+    <p className='motto-mob'> AUTOMATED EMPLOYEE MANAGEMENT SYSTEM</p>
+
       {props.registered 
       && <LoginForm 
       setRegistered={props.setRegistered} 

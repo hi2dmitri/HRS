@@ -32,21 +32,20 @@ const SignupForm = (props)  => {
   return (
     <form className = 'signupForm'>
       <p className='form-name'>SIGNUP</p>
-      <p>Please enter email, password and token</p>
-      <FontAwesomeIcon className="fausers" icon={faUsers} size="2x"/>
+      <div className='enter-email'>Please enter user credentials. Token must be obtained from authorizing party</div>
       {props.errorLogin === false && <Error registered={props.registered}/>}
       {props.errorLogin === 'emailfailed' && <div className='errordiv'>
         <p>Incorrect email format. Please try again 
         </p>
       </div>}
       <div className="form-group">
-        <input type="email" className="form-control" placeholder="Enter email" onChange={emailEntered}/>
+        <input type="email" className="form-control" placeholder="Email" onChange={emailEntered}/>
       </div>
       <div className="form-group">
-        <input type="password" className="form-control" placeholder="Enter password" onChange={passwordEntered} />
+        <input type="password" className="form-control" placeholder="Password" onChange={passwordEntered} />
       </div>
       <div className="form-group">
-        <input type="token" className="form-control" placeholder="Enter token" onChange={tokenEntered}/>
+        <input type="token" className="form-control" placeholder="Token" onChange={tokenEntered}/>
       </div>
       <button type="button" className="auth-button" onClick={props.submitInfo}>Signup</button>
       <div className="forgot-password text-right">

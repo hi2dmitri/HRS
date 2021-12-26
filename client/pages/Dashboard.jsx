@@ -3,13 +3,13 @@ import React, { useState } from 'react';
 import { Redirect, withRouter} from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCogs, faUsers, faHome, faUserShield, faSearch, faCircle} from '@fortawesome/free-solid-svg-icons';
-import MembersDept from './MembersDept';
-import EmployeesDept from './EmployeesDept';
-import Intro from './Intro';
-import JobsDept from './JobsDept';
-import ApplicantsDept from './ApplicantsDept';
-import InterviewsDept from './InterviewsDept';
-import Settings from './Settings';
+import MembersDept from '../components/MembersDept';
+import EmployeesDept from '../components/EmployeesDept';
+import Intro from '../components/Intro';
+import JobsDept from '../components/JobsDept';
+import ApplicantsDept from '../components/ApplicantsDept';
+import InterviewsDept from '../components/InterviewsDept';
+import Settings from '../components/Settings';
 
 
 /*

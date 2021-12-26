@@ -6,7 +6,7 @@ import React from 'react';
 function Error (props)  {
   return (
     <div className='errordiv'>
-      <p>Information you entered does not match our records. 
+      <p>Information you entered does not match our records
         {props.registered === true &&
         <span> If you are not registered, please signup or try again</span>}
       </p>

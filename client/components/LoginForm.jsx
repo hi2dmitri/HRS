@@ -28,14 +28,13 @@ const LoginForm = (props)  => {
   return (
     <form className='loginForm'>
       <p className='form-name'>LOGIN</p>
-      <p>Please enter email and password</p>
-      <FontAwesomeIcon className="fausers" icon={faUsers} size="2x"/>
+      <div className='enter-email'>Please enter user credentials</div>
       {props.errorLogin === false && <Error registered={props.registered}/>}
       <div className="form-group">
-        <input type="email" className="form-control" placeholder="Enter email" onChange = {emailEntered}/>
+        <input type="email" className="form-control" placeholder="Email" onChange = {emailEntered}/>
       </div>
       <div className="form-group">
-        <input type="password" className="form-control" placeholder="Enter password" onChange={passwordEntered} />
+        <input type="password" className="form-control" placeholder="Password" onChange={passwordEntered} />
       </div>
     
       <button type="button" className="auth-button" onClick={props.submitInfo}>Login</button>

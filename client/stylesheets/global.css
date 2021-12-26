@@ -5,197 +5,33 @@ body {
     margin: 0px;
     color: rgb(63, 62, 62);
     font-family: sans-serif;
+    overflow: scroll;
 }
+
+
 
 .app-container { 
     width: 100vw;
     height: 100vh;
     background-color: rgba(243, 249, 252, 0.774);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.landing-page {
-    position: relative;
-    display: flex;
-    width: 75%;
-    height: 80%;
-    justify-content: center;
-    border-radius: 5px;
-    box-shadow: 0 0 10px #c5e1ff;
-}
-
-.logoImg {
-    width: 100%;
-    height: 100%;
-    border-radius: 5px;
-    object-fit: fill;
-}
-
-.textInImage {
-    position: absolute;
-    top: 30px;
-    left: 30px;
-    color: rgb(255, 255, 255);
-}
-
-.textInImage h3 {
-    font-family: 'Allerta Stencil', sans-serif !important;
-    font-size: 60px;
-    text-shadow: 4px 3px #595c7c;
-    opacity: 90%;
-    padding: 0;
-    margin: 0;
-} 
-
-.motto {
-    position: absolute;
-    bottom: 20px;
-    right:55%;
-    color: rgb(236, 248, 252);
-}
-
-.motto p {
-    font-size: 11px;
-    font-weight: 500;
-    opacity: 90%;
-}
-
-.form-name {
-    font-size: 23px;
-    margin: 10px;
-}
-
-.form-group {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-.auth {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 45%;
-    min-width: 400px;
-    border-radius: 5px;
-    background-color: #ffffff;
     overflow: scroll;
-}
-
-.loginForm, .signupForm {
-    display:flex;
-    flex-direction: column;
+    display: flex;
+    justify-content: center;
     align-items: center;
     overflow: scroll;
-    width: 80%;
-    border-radius: 6px;
+
 }
 
-.intro {
-    background-color: #719ECE;
-    width: 55%;
-    border-radius: 5px;
+.loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-.form-control {
-    margin: 1vh;
-    border-radius: 10px;
-    width: 100%;
-    max-width: 500px;
-    height: 5vh;
-    min-height: 40px;
-    border: 1px solid #a3a3a3;
-    box-shadow: 0 0 7px #719ECE;
-}
 
-.not-supported {
-    width: 0px;
-    height: 0px;
-}
 
-.auth-button {
-    background-color: #719ECE;
-    color: white;
-    margin: 15px;
-    border-radius: 10px;
-    width: 96%;
-    min-width: 254px;
-    height: 5.2vh;
-    min-height: 44px;
-    border: 1px solid #719ECE;
-}
-
-.form-control:focus, .auth-button:hover {
-    outline: rgb(114, 114, 114);
-    box-shadow: 0 0 10px #719ECE;
-}
-
-.auth-button:hover {
-    background-color: white;
-    color: #719ECE;
-}
-
-.fausers {
-    margin: 20px;
-    opacity: 0.75;                /* Opacity (Transparency) */
-    color: rgba(0, 0, 0, 0.75)
-}
-
-a {
-    color: #719ECE;
-    cursor: default;
-}
-
-.errordiv {
-    width: 96%;
-    min-width: 254px;
-    margin-bottom: 10px;
-}
-
-.errordiv p {
-    font-size: 14px;
-    margin: 4px;
-    color: rgb(233, 85, 85)
-}
-
-@media screen and (max-width: 1024px), 
-       screen and (max-height: 668px){
-    .intro {
-        width: 0px;
-        height: 0px;
-      }
-      .auth {
-          width: 0px;
-          height: 0px;
-      }
-      .landing-page {
-          background-color: white;
-          flex-direction: column;
-          align-items: center;
-      }
-      .not-supported {
-          width: 100%;
-          text-align: center;
-      }
-      .textInImage {
-          top: 10px;
-          left: 10px;
-          color: rgb(34,78,124);
-      }
-      .textInImage h3 {
-          font-size: 50px;
-          text-shadow: 4px 3px #719ECE;  
-      } 
-      .motto p {
-        font-size: 12px;
-        font-weight: 500;
-        opacity: 0%;
-    }
-  }
-
-.errorPage {
+/* .errorPage {
     position: fixed;
     top: 30%;
     left: 50%;
@@ -253,7 +89,6 @@ a {
     font-size: 25px;
     font-weight: 600;
 }
-/*logout button*/
 .header :nth-child(2) {
     margin: 10px;
     width: 65px;
@@ -1467,4 +1302,4 @@ input{
         width: 0px;
         height: 0px;
     }
-  }
+  }  */
