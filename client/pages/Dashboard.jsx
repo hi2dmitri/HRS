@@ -1,7 +1,8 @@
 /* eslint-disable no-dupe-keys */
 import React, { useState } from 'react';
-import { Redirect, withRouter} from 'react-router-dom';
+import { withRouter} from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import './dashboard.css';
 import { faCogs, faUsers, faHome, faUserShield, faSearch, faCircle} from '@fortawesome/free-solid-svg-icons';
 import MembersDept from '../components/MembersDept';
 import EmployeesDept from '../components/EmployeesDept';
@@ -10,6 +11,7 @@ import JobsDept from '../components/JobsDept';
 import ApplicantsDept from '../components/ApplicantsDept';
 import InterviewsDept from '../components/InterviewsDept';
 import Settings from '../components/Settings';
+import DropMenu from '../components/DropMenu';
 
 
 /*
@@ -20,7 +22,6 @@ import Settings from '../components/Settings';
 */
 
 const Dashboard = (props)  => {
-  console.log('i was called from dashboard component');
   // if (props.auth === false) {
   //   return <Redirect to='/' />;
   // }
@@ -28,7 +29,6 @@ const Dashboard = (props)  => {
   const nwN = localStorage.getItem('name');
   const[name, setName] = useState(nwN);
   const[currentComponent, setCurrentComponent] = useState({type: 'DASHBOARD'});
-  const[additionalButtons, setAdditionalButtons] = useState(false);
   const[dashButtonStyle, setDashButtonStyle] = useState({background1:'rgb(3,40,71)', background2: 'linear-gradient(156deg, rgba(3,40,71,1) 35%, rgb(15, 55, 92) 56%, rgba(31,74,120,1) 93%)'});
   const[empButtonStyle, setEmpButtonStyle] = useState({background1:'transparent', background2: 'transparent'});
   const[tooButtonStyle, setTooButtonStyle] = useState({background1:'transparent', background2: 'transparent'});
@@ -41,7 +41,6 @@ const Dashboard = (props)  => {
 
     if (e.target.className === 'dashButton') {
       setCurrentComponent({type: 'DASHBOARD'});
-      setAdditionalButtons(false);
       setDashButtonStyle({background1:'rgb(3,40,71)', background2: 'linear-gradient(156deg, rgba(3,40,71,1) 35%, rgb(15, 55, 92) 56%, rgba(31,74,120,1) 93%)'});
       setEmpButtonStyle({background1:'transparent', background2: 'transparent'});
       setTooButtonStyle({background1:'transparent', background2: 'transparent'});
@@ -52,7 +51,6 @@ const Dashboard = (props)  => {
     }
     else if (e.target.className === 'memButton') {
       setCurrentComponent({type: 'USERS'});
-      setAdditionalButtons(false);
       setDashButtonStyle({background1:'transparent', background2: 'transparent'});
       setEmpButtonStyle({background1:'transparent', background2: 'transparent'});
       setTooButtonStyle({background1:'transparent', background2: 'transparent'});
@@ -62,8 +60,7 @@ const Dashboard = (props)  => {
       setSetButtonStyle({background1:'transparent', background2: 'transparent'});
     }
     else if (e.target.className === 'empButton') {
-      setCurrentComponent({type: 'EMPLOYEES'});
-      setAdditionalButtons(false);
+      setCurrentComponent({type: 'EMPLOYMENT'});
       setDashButtonStyle({background1:'transparent', background2: 'transparent'});
       setEmpButtonStyle({background1:'rgb(3,40,71)', background2: 'linear-gradient(156deg, rgba(3,40,71,1) 35%, rgb(15, 55, 92) 56%, rgba(31,74,120,1) 93%)'});
       setTooButtonStyle({background1:'transparent', background2: 'transparent'});
@@ -74,7 +71,6 @@ const Dashboard = (props)  => {
     }
     else if (e.target.className === 'tooButton') {
       setCurrentComponent({type: 'RECRUITMENT: jobs'});
-      additionalButtons === true ? setAdditionalButtons(false) : setAdditionalButtons(true);
       setDashButtonStyle({background1:'transparent', background2: 'transparent'});
       setEmpButtonStyle({background1:'transparent', background2: 'transparent'});
       setTooButtonStyle({background1:'rgb(3,40,71)', background2: 'linear-gradient(156deg, rgba(3,40,71,1) 35%, rgb(15, 55, 92) 56%, rgba(31,74,120,1) 93%)'});
@@ -85,7 +81,6 @@ const Dashboard = (props)  => {
     }
     else if (e.target.className === 'setButton') {
       setCurrentComponent({type: 'SETTINGS'});
-      setAdditionalButtons(false);
       setDashButtonStyle({background1:'transparent', background2: 'transparent'});
       setEmpButtonStyle({background1:'transparent', background2: 'transparent'});
       setTooButtonStyle({background1:'transparent', background2: 'transparent'});
@@ -121,22 +116,26 @@ const Dashboard = (props)  => {
       <div className='navigation'>
         <h1 className="logoText">HRS</h1>
         <p className='welcomeMessage'>USER: {name}</p>
+        <DropMenu setCurrentComponent={setCurrentComponent}/>
+        <button className='logout-mob'onClick={ (e) => {localStorage.removeItem('token'); localStorage.removeItem('name'); props.setAuth(false); }}>
+          LOGOUT
+        </button>
         <div className="navigationButtonContainer">
           <button type='button' className='dashButton' style={{background: dashButtonStyle.background1, background: dashButtonStyle.background2}} onClick={(e) => buttonClicked(e)}> 
             <FontAwesomeIcon className="navIcons" icon={faHome}/>
             Dashboard</button>
           <button type='button' className='empButton' style={{background: empButtonStyle.background1, background: empButtonStyle.background2}} onClick={(e) => buttonClicked(e)}>
             <FontAwesomeIcon className="navIcons" icon={faUsers}/>
-            Employees</button>
+            Employment</button>
           <button type='button' className='tooButton' style={{background: tooButtonStyle.background1, background: tooButtonStyle.background2}} onClick={(e) => buttonClicked(e)}>
             <FontAwesomeIcon className="navIcons" icon={faSearch}/>
              Recruitment</button>
-          {additionalButtons && <button type='button' className='interviewbutton' style={{background: interviewButtonStyle.background1, background: interviewButtonStyle.background2}} onClick={(e) => buttonClicked(e)}>
+          <button type='button' className='interviewbutton' style={{background: interviewButtonStyle.background1, background: interviewButtonStyle.background2}} onClick={(e) => buttonClicked(e)}>
             <FontAwesomeIcon className="navIcons" size='xs' icon={faCircle}/>
-            Interviews</button>}
-          {additionalButtons && <button type='button' className='candidatesbutton' style={{background: candidatesButtonStyle.background1, background: candidatesButtonStyle.background2}} onClick={(e) => buttonClicked(e)}>
+            Interviews</button>
+          <button type='button' className='candidatesbutton' style={{background: candidatesButtonStyle.background1, background: candidatesButtonStyle.background2}} onClick={(e) => buttonClicked(e)}>
             <FontAwesomeIcon className="navIcons" size='xs' icon={faCircle}/>
-            Applicants</button>}
+            Applicants</button>
           <button type='button' className='memButton' style={{background: memButtonStyle.background1, background: memButtonStyle.background2}} onClick={(e) => buttonClicked(e)}>
             <FontAwesomeIcon className="navIcons" icon={faUserShield}/>
             Users</button>
@@ -148,13 +147,13 @@ const Dashboard = (props)  => {
       <div className='displayDashboard'>
         <div className='header'>
           <p>{currentComponent.type}</p>
-          <button onClick={ (e) => {localStorage.removeItem('token'); localStorage.removeItem('name'); props.setAuth(false); }}>
-          Logout
+          <button className='logout-main'onClick={ (e) => {localStorage.removeItem('token'); localStorage.removeItem('name'); props.setAuth(false); }}>
+          LOGOUT
           </button>
         </div>
         <div className='workingArea'>
           {currentComponent.type === 'USERS' && <MembersDept />}
-          {currentComponent.type === 'EMPLOYEES' && <EmployeesDept />}
+          {currentComponent.type === 'EMPLOYMENT' && <EmployeesDept />}
           {currentComponent.type === 'DASHBOARD' && <Intro />}
           {currentComponent.type === 'RECRUITMENT: jobs' && <JobsDept />}
           {currentComponent.type === 'RECRUITMENT: applicants' && <ApplicantsDept />}

@@ -1,6 +1,6 @@
 import React from 'react';
-import TableCell from '@material-ui/core/TableCell';
-import TableRow from '@material-ui/core/TableRow';
+import TableCell from '@mui/material/TableCell';
+import TableRow from '@mui/material/TableRow';
 
 /*
   Renders a table of interviews with names as buttons. 
@@ -36,7 +36,7 @@ const InterviewDeptListTable = (props) => {
               CONTACT    
         </div>
       </div>
-      <table className='tbody-intdept'> 
+      {/* <table className='tbody-intdept'> 
         <tbody className='tbody-intdept'> 
           {interviews.map((row, i ) => (
             <TableRow key={row.id + '-' + i} className='candidate-intdept'>
@@ -52,7 +52,7 @@ const InterviewDeptListTable = (props) => {
             </TableRow>
           ))}
         </tbody>
-      </table>
+      </table> */}
     </div>
   );
 };

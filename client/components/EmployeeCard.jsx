@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {AccordionDetails, AccordionSummary, Accordion} from '@material-ui/core';
+import {AccordionDetails, AccordionSummary, Accordion} from '@mui/material';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Terminator from './Terminator.jsx';
 

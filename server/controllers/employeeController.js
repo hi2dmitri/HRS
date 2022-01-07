@@ -1,7 +1,5 @@
 const employeeController = {};
 const db = require('../db');
-const {numberOfEmplInMonth} = require('../utils/helpers');
-
 employeeController.getPresent = async (req, res, next) => {
   try {
     const queryMembers = `SELECT e.*, a.street, a.city, a.state, a.zip 
@@ -165,8 +163,7 @@ employeeController.getGraphData = async (req, res, next) => {
     const graphQuery = `SELECT dateofhire, termindate 
     FROM employees;`;
     const result = await db.query(graphQuery);
-    const newResult = numberOfEmplInMonth(result.rows);
-    res.locals.result = newResult;
+    res.locals.result = result.rows;
     return next();
   }
   catch (err) {
