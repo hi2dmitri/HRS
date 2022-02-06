@@ -21,14 +21,6 @@ module.exports = {
     open: true,
     historyApiFallback: true,
     proxy: {
-      '/login/**': {
-        target: 'http://localhost:3000/',
-        secure: false,
-      },
-      '/signup/**': {
-        target: 'http://localhost:3000/',
-        secure: false,
-      },
       '/members/**': {
         target: 'http://localhost:3000/',
         secure: false,
@@ -42,6 +34,10 @@ module.exports = {
         secure: false,
       },
       '/recruitment/**': {
+        target: 'http://localhost:3000/',
+        secure: false,
+      },
+      '/auth/**': {
         target: 'http://localhost:3000/',
         secure: false,
       },

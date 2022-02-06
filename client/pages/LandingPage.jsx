@@ -17,7 +17,6 @@ where Error component renders.
 
 
 const Login = (props)  => {
-  console.log('I was called from login component');
 
   const info = {
       email: null,
@@ -26,29 +25,19 @@ const Login = (props)  => {
   };
 
   const [login, setLogin] = useState(info);
-  console.log('login', login);
 
   const [errorLogin, setErrorLogin] = useState(true);
 
-  function findCookie (cookies) {
-      let res = cookies.split('; ');
-      let rightCookie = '';
-      for (let i = 0; i < res.length; i++) {
-        if (res[i].includes('ssid=')) {rightCookie = res[i].trim();}
-      }
-      res = rightCookie.split('=')[1];
-      return res;
-  }
+
 
   function submitInfo(e) {
     let url = '';
     if (props.registered) {
-      url = '/login';
+      url = '/auth/login';
     }
     else {
-      url = '/signup';
+      url = '/auth/signup';
     }
-    console.log('url', url);
 
     const data = {
       email: login.email,
@@ -64,6 +53,7 @@ const Login = (props)  => {
     })
     .then(data => data.json())
     .then(resp => {
+
       if (resp.status === false) {
         setErrorLogin(false);
         props.setAuth(resp.status);
@@ -75,14 +65,9 @@ const Login = (props)  => {
 
       }
       else if (resp.status === true) {
-        const rightCookie = findCookie(document.cookie);
-        if(rightCookie) {
-          localStorage.setItem('token', rightCookie);
           localStorage.setItem('name', `${resp.name.firstName} ${resp.name.lastName}`);
-        }
-        props.setAuth(resp.status);
+          props.setAuth(resp.status);
       }
-
     })
     .catch(err => console.log(err));
   }

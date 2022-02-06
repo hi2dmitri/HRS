@@ -1,12 +1,12 @@
 import React from 'react';
 import { render } from 'react-dom';
 import App from './App';
-import { BrowserRouter as Router} from 'react-router-dom';
+import {AuthProvider} from './context/authContext';
 
 
 render(
-  <Router>
+  <AuthProvider>
     <App />
-  </Router>,
+  </AuthProvider>,
   document.getElementById('app'),
 );

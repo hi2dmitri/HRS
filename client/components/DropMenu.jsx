@@ -8,7 +8,6 @@ export default function BasicMenu({setCurrentComponent}) {
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
-    console.log('cur tar', event.currentTarget)
   };
   const handleClose = (e) => {
     if(e.target.id === 'dashboard') {

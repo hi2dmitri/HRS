@@ -110,13 +110,19 @@ const Dashboard = (props)  => {
     }
   };
 
+  const logout = async () => {
+    props.setAuth(false);
+    const resp = await fetch('/auth/logout');
+    localStorage.removeItem('name'); 
+  };
+
   return ( 
     <div className='dashboard'>     
       <div className='navigation'>
         <h1 className="logoText">HRS</h1>
         <p className='welcomeMessage'>USER: {name}</p>
         <DropMenu setCurrentComponent={setCurrentComponent}/>
-        <button className='logout-mob'onClick={ (e) => {localStorage.removeItem('token'); localStorage.removeItem('name'); props.setAuth(false); }}>
+        <button className='logout-mob'onClick={logout}>
           LOGOUT
         </button>
         <div className="navigationButtonContainer">
@@ -146,7 +152,7 @@ const Dashboard = (props)  => {
       <div className='displayDashboard'>
         <div className='header'>
           <p>{currentComponent.type}</p>
-          <button className='logout-main'onClick={ (e) => {localStorage.removeItem('token'); localStorage.removeItem('name'); props.setAuth(false); }}>
+          <button className='logout-main'onClick={logout}>
           LOGOUT
           </button>
         </div>

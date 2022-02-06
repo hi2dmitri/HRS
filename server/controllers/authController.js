@@ -1,6 +1,8 @@
 const db = require('../db');
 const bcrypt = require('bcryptjs');
 const authController = {};
+const jwt = require('jsonwebtoken');
+
 
 function validateEmail(str) {
   const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -65,7 +67,6 @@ authController.createUser = async (req, res, next) => {
 
 authController.verifyUser = async (req, res, next) => {
   try {
-    console.log('verify,', req.body);
     const {email, password} = req.body;
     const findUserDb = `SELECT password, _id, first_name, last_name
     FROM auth_table WHERE email = $1;`;
@@ -106,7 +107,22 @@ authController.verifyUser = async (req, res, next) => {
     return next (err);
   }
 };
-
+authController.isAuth = async (req, res, next) => {
+  try{
+    if(!req.cookies.ssid) {
+      res.locals.tokenVerif = false;
+      return next();
+    }
+    const token = req.cookies.ssid;
+    const id = await jwt.verify(token, process.env.ID_SALT);
+    if (id) {
+      res.locals.tokenVerif = true;
+    }
+    else {res.locals.tokenVerif = false;}
+    return next();
+  }
+  catch (err) {return next(err);}
+};
 
 
 

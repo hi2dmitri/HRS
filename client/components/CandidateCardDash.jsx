@@ -9,10 +9,8 @@ const CandidateCardDash = (props) => {
   
   const {setCurrView, interviews, candidateId} = props;
   const candidateInfo = interviews.filter(interview => interview.id == candidateId)[0];
-  console.log('candidinfo', candidateInfo);
 
   const goBack = () => {
-    console.log('hi');
     setCurrView('interviews');
   };
 
