@@ -26,6 +26,7 @@ const Login = (props)  => {
   };
 
   const [login, setLogin] = useState(info);
+  console.log('login', login);
 
   const [errorLogin, setErrorLogin] = useState(true);
 

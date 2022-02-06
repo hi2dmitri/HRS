@@ -5,15 +5,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import styled from 'styled-components';
-
-const Title = styled.h1`
-  font-size: 1em;
-  text-align: center;
-  color: #193F67;
-  background: rgb(213,236,255);
-  background: linear-gradient(156deg, rgba(213,236,255,1) 19%, rgba(241,248,255,1) 56%, rgba(255,255,255,1) 93%);
-`;
+import Title from './Title';
 
 /*
   Filters interviews to render only upcoming interviews.
@@ -53,7 +45,7 @@ const InterviewsDashList = (props) => {
   return (
     <div> 
       <div className='headerChart'>
-        <div className ='descrHeader'>UPCOMING INTERVIEWS</div>
+        <Title title='UPCOMING INTERVIEWS '/>      
       </div>
       <div className='thead'>
         <div className='throw1'>

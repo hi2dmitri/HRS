@@ -1,9 +1,9 @@
 import React from 'react';
 import GrowthChart from './GrowthChart';
 import InterviewsDash from './InterviewsDash';
-import BottomDash from './BottomDash';
 import ChangedPastMonth from './ChangedPastMonth';
 import PositionsChart from './PositionsChart';
+import ToScheduleInterviews from './ToScheduleInterviews';
 
 /*
   Renders GrowthChart, InterviewsDash and BottomDash components
@@ -14,10 +14,10 @@ const Intro = (props) => {
   const names = ['bottomleft1', 'bottomleft2'];
   return (
     <div className='mainDash'>
-      <div className = 'mainIntro'>
-        <section className='companyGrowth'>
+      <section className = 'top-dash'>
+        <div className='companyGrowth'>
           <GrowthChart />
-        </section>
+        </div>
         <div className="monthly-updates">
           <div className='bottomleft1'>
             <ChangedPastMonth parent={names[0]}/></div>
@@ -28,9 +28,14 @@ const Intro = (props) => {
         <div className="ratio-chart"> 
           <PositionsChart />
         </div>
-      </div>
-      <section className='candidates'>
-        <BottomDash />
+      </section>
+      <section className='bottom-dash'>
+        <section className='interviews'>
+          <InterviewsDash />
+        </section>
+        <div className="to-schedule-container"> 
+          <ToScheduleInterviews />
+        </div>
       </section>
     </div>
   );

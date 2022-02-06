@@ -12,7 +12,7 @@ Error component is rendered based on props from Login component
 */
 
 const LoginForm = (props)  => {
-  function register () {
+  function register() {
     props.setRegistered(false);
     props.setErrorLogin(true);
   }

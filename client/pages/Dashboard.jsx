@@ -1,6 +1,5 @@
 /* eslint-disable no-dupe-keys */
 import React, { useState } from 'react';
-import { withRouter} from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './dashboard.css';
 import { faCogs, faUsers, faHome, faUserShield, faSearch, faCircle} from '@fortawesome/free-solid-svg-icons';
@@ -165,4 +164,4 @@ const Dashboard = (props)  => {
   );
 };
 
-export default withRouter (Dashboard);
+export default Dashboard;

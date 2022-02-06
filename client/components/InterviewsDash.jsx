@@ -39,7 +39,7 @@ const InterviewsDash = (props) => {
   },[]);
 
 
-  return (<div className = 'dashmain'> 
+  return (<div className = 'interviews-container'> 
     {isLoading && 
       <div className = "loadinginComponent">
         < CircularProgress />

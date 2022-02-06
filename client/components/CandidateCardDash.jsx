@@ -1,4 +1,5 @@
 import React from 'react';
+import Title from './Title';
 
 /*
   Renders candidate info, on click changes parent state view to display table of interviews.
@@ -18,8 +19,7 @@ const CandidateCardDash = (props) => {
   return( 
     <div>
       <div className='headerChart'>
-        <div className ='descrHeader'>CANDIDATE INFO</div>
-      </div>
+        <Title title='CANDIDATE INFO' />      </div>
       <div className='candidateInnerContainer'>
         <div className = 'candidateDescr'> 
           <div className='tag'>First Name</div>

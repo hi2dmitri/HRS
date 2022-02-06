@@ -1,6 +1,7 @@
 import { CircularProgress } from '@material-ui/core';
 import React, {useState, useEffect} from 'react';
 import CandidateMiniCard from './CandidateMiniCard';
+import Title from './Title';
 
 
 /*
@@ -37,6 +38,7 @@ const ToScheduleInterviews = (props) => {
 
   return (
     <div className = 'toinherit'> 
+      <Title title='INTERVIEWS TO SCHEDULE' />
       {isLoading && 
       <div className = "loadinginComponent">
         <CircularProgress />
@@ -44,7 +46,6 @@ const ToScheduleInterviews = (props) => {
       {!isLoading && 
       <div>
         <div className='headerChart'>
-          <div className ='descrHeader'>INTERVIEWS TO SCHEDULE</div>
         </div>
         <div>
           {error && <div>

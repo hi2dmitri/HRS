@@ -13,6 +13,7 @@ require('dotenv').config();
 
 const app = express();
 const PORT = 3000;
+console.log('request came')
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

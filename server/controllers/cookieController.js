@@ -21,7 +21,6 @@ cookieController.createSession = async (req, res, next) => {
 
 cookieController.verifyToken = async (req, res, next) => {
   try{
-    console.log('ran');
     const token = req.body.token;
     const id = await jwt.verify(token, process.env.ID_SALT);
     if (id) {

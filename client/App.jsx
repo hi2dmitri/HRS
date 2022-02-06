@@ -1,6 +1,6 @@
 /* eslint-disable no-trailing-spaces */
 import React, { useState, useEffect } from 'react';
-import {Switch, Route, Redirect} from 'react-router-dom';
+import {Routes, Route, Navigate} from 'react-router-dom';
 import './stylesheets/global.css';
 import LandingPage from './pages/LandingPage';
 import Dashboard from './pages/Dashboard';
@@ -48,7 +48,6 @@ function App(props){
       setIsLoading(false);
     }
   };
-  console.log('auth', auth);
   return (
     <div className='app-container'>
       {isLoading && 
@@ -57,24 +56,27 @@ function App(props){
       </div>
       }
       {!isLoading && (
-        <Switch>
-          <Route exact path="/main" >
-            {auth ? 
-              <Dashboard auth ={auth} setAuth={setAuth}/> :
-              <Redirect to='/' />
+        <Routes>
+          <Route path="/main" element={
+            auth ? 
+              <Dashboard auth ={auth} setAuth={setAuth}/>
+              : <Navigate replace to="/" />
+          }
+          />
+          <Route path = "/"
+            element= {
+              auth ? <Navigate replace to="/main" />
+                : <LandingPage 
+                  auth={auth} 
+                  setAuth={setAuth} 
+                  registered={registered} 
+                  setRegistered={setRegistered}
+                />
             }
-          </Route>
-          <Route exact path = "/">
-            { auth ? <Redirect to="/main" /> : <LandingPage 
-              auth={auth} 
-              setAuth={setAuth} 
-              registered={registered} 
-              setRegistered={setRegistered}
-            />}
-          </Route>
-          <Route path="/404" component={ErrorPage} />
-          <Redirect to="/404" />
-        </Switch>
+          />
+          <Route path="/404" element={<ErrorPage/>} />
+          <Route path = "*" element={<Navigate replace to="/404" />} />
+        </Routes>
       )}
     </div>
   );
