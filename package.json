@@ -4,9 +4,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon api_server/server.js",
-    "dev": " webpack-dev-server --history-api-fallback & nodemon ./api_server/server.js & nodemon ./auth_server/server.js",
+    "start": "nodemon ./servers/api_server/server.js & nodemon ./servers/auth_server/server.js",
+    "dev": " webpack-dev-server --history-api-fallback & nodemon ./servers/api_server/server.js & nodemon ./servers/auth_server/server.js",
     "build": "webpack",
     "web": "webpack-dev-server"
   },
