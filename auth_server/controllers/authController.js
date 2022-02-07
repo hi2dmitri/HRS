@@ -9,7 +9,6 @@ function validateEmail(str) {
   return re.test(String(str).toLowerCase());
 }
 
-
 authController.createUser = async (req, res, next) => {
   try {
     const SALT_WORK_FACTOR = 10;
@@ -26,9 +25,8 @@ authController.createUser = async (req, res, next) => {
     const salt = await bcrypt.genSalt(SALT_WORK_FACTOR);
     const _password = await bcrypt.hash(password, salt);
 
-    // eslint-disable-next-line quotes
-    const queryStr = 'SELECT * FROM tokens t WHERE t.token=$1';
     const value = [token];
+    const queryStr = 'SELECT * FROM public.tokens WHERE token=$1;';
     const respObj = await db.query(queryStr, value);
     const person = respObj.rows[0];
     if (!person) {
@@ -43,9 +41,10 @@ authController.createUser = async (req, res, next) => {
     if (person.reg_status === 'N') {
       res.locals.registration = true;
 
-      const updateQuery  = `UPDATE tokens 
+      const updateQuery  = `UPDATE public.tokens 
       SET reg_status='Y', email = $1
       WHERE token = $2 ;`;
+
       const newVal = [email, token];
       await db.query(updateQuery, newVal);
 
@@ -54,6 +53,7 @@ authController.createUser = async (req, res, next) => {
       RETURNING _id;`;
       const vals = [email, _password, person.first_name, person.last_name];
       const addedId = await db.query(addAccountQuery, vals);
+
       res.locals.name = {firstName: person.first_name, lastName: person.last_name};
       res.locals.id = addedId.rows[0]._id;
     }

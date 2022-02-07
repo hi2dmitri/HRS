@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { CircularProgress } from '@material-ui/core';
 import Title from '../components/Title';
-import {BarChart} from 'd3reacts';
+import {BarChart} from 'd3reactor';
 
 /*
   Gets data from backend on mount,
@@ -107,7 +107,7 @@ const GrowthChart = (props) => {
   useEffect(() => {
     fetchdata();
   }, []);
-
+console.log('data, ', data)
   const fetchdata = async() => {
     try {
       const result = await fetch('/employees/graphdata', {method: 'GET',
@@ -145,12 +145,16 @@ const GrowthChart = (props) => {
             <div className='chartCont'>
               <BarChart
                 height="100%"
+                width="100%"
                 data={data}
                 xKey="month"
                 yKey="employees"
                 groupBy="year"
                 xAxis="bottom"
-                yAxis="left"
+                yAxis="right"
+                yGrid={true}
+                yAxisLabel="Value"
+                legend="top"
               />
             </div> 
       }

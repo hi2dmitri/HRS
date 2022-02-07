@@ -5,8 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server/server.js",
-    "dev": "concurrently \"cross-env NODE_ENV=development webpack-dev-server --history-api-fallback \" \"nodemon ./server/server.js\"",
+    "start": "nodemon api_server/server.js",
+    "dev": " webpack-dev-server --history-api-fallback & nodemon ./api_server/server.js & nodemon ./auth_server/server.js",
     "build": "webpack",
     "web": "webpack-dev-server"
   },
@@ -28,7 +28,7 @@
     "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.5",
     "d3": "^7.1.1",
-    "d3reacts": "file:../d3reacts/d3reacts-1.0.0.tgz",
+    "d3reactor": "^0.0.12",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",

@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { CircularProgress } from '@material-ui/core';
 import Title from './Title';
-import {PieChart} from 'd3reacts';
+import {PieChart} from 'd3reactor';
 /*
   sends request to backend to get all positions and number of apps.
   if error occurs displays error
@@ -55,6 +55,7 @@ const PositionsChart = (props) => {
          innerRadius='60%'
          outerRadius='90%'
          legend='right'
+         colorScheme='schemeBlues'
        />
       }
     </div>}

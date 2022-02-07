@@ -19,7 +19,7 @@ function AuthProvider({children}) {
 
   const fetchData = async() => {
     try {
-      const response = await fetch('auth/verify');
+      const response = await fetch('/verify');
       const status = await response.json();
       if (status.auth) {
         setAuth(true);
@@ -28,15 +28,6 @@ function AuthProvider({children}) {
       setIsLoading(false);    
     }
   };
-
-  // useEffect(() => {
-  //     (async () => {
-  //         const response = await fetch("")
-  //         const data = await response.json();
-  //         console.log(data);
-  //         // set state with data
-  //     })();
-  //   }, []);
 
   const globalData = {
     isLoading,

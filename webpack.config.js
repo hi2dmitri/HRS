@@ -17,7 +17,6 @@ module.exports = {
   mode: 'development',
   devServer: {
     host: 'localhost',
-    port: 8080,
     open: true,
     historyApiFallback: true,
     proxy: {
@@ -38,7 +37,7 @@ module.exports = {
         secure: false,
       },
       '/auth/**': {
-        target: 'http://localhost:3000/',
+        target: 'http://localhost:4000/',
         secure: false,
       },
     },
